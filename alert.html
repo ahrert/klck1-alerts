@@ -17,41 +17,36 @@
 
     #alert-box {
       display: none;
-      background-color: #f1c40f;
+      background-color: #f39c12;
       color: white;
-      padding: 20px;
-      font-size: 24px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      animation: showAlert 3s ease-out;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeInOut 3s ease-out forwards;
     }
 
-    @keyframes showAlert {
-      0% { opacity: 0; transform: translateY(-20px); }
-      50% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
     }
   </style>
 </head>
 <body>
 
-  <div id="alert-box">
-    <p id="alert-text">شكراً لـ [اسم المتبرع]!</p>
-  </div>
+  <div id="alert-box">شكراً لـ [اسم المتبرع]!</div>
 
   <script>
     function showAlert(name) {
       const alertBox = document.getElementById('alert-box');
-      const alertText = document.getElementById('alert-text');
-      alertText.textContent = `شكراً لـ ${name} على التبرع!`;
+      alertBox.textContent = `شكراً لـ ${name} على التبرع!`;
       alertBox.style.display = 'block';
-      setTimeout(() => {
-        alertBox.style.display = 'none';
-      }, 3000); // يتم إخفاء التنبيه بعد 3 ثوانٍ
+      setTimeout(() => alertBox.style.display = 'none', 3000);
     }
 
-    // مثال لاستخدام الكود
-    setTimeout(() => showAlert('فرده'), 1000); // يحاكي تبرع بعد 1 ثانية
+    // مثال لاستخدام الكود (اختبار)
+    setTimeout(() => showAlert('فرده'), 1000); // يحاكي تبرع بعد ثانية
   </script>
 
 </body>
