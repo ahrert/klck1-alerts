@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stream Alert</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #alert-box {
+      display: none;
+      background-color: #f1c40f;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      animation: showAlert 3s ease-out;
+    }
+
+    @keyframes showAlert {
+      0% { opacity: 0; transform: translateY(-20px); }
+      50% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="alert-box">
+    <p id="alert-text">شكراً لـ [اسم المتبرع]!</p>
+  </div>
+
+  <script>
+    function showAlert(name) {
+      const alertBox = document.getElementById('alert-box');
+      const alertText = document.getElementById('alert-text');
+      alertText.textContent = `شكراً لـ ${name} على التبرع!`;
+      alertBox.style.display = 'block';
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 3000); // يتم إخفاء التنبيه بعد 3 ثوانٍ
+    }
+
+    // مثال لاستخدام الكود
+    setTimeout(() => showAlert('فرده'), 1000); // يحاكي تبرع بعد 1 ثانية
+  </script>
+
+</body>
+</html>
